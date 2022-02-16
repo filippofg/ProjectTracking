@@ -1,0 +1,44 @@
+@extends('layouts.app')
+
+@section('head')
+<title>ProjectTracking - Project - {{ $project->name }}</title>
+@endsection
+
+@section('content')
+	<div class="row">
+		<div class="col-md-12">
+            <h1>{{ $project->name }}</h1>
+            <h5>
+                Commissionato da:
+                <a href="{{  URL::action('CustomerController@show', $project->customer_vat_number) }}">
+                    {{ $project->customer->business_name }}
+                </a>
+            </h5>
+            <b>Descrizione: </b>{{ $project->description }}<br>
+            @if($project->notes)
+                <b>Note:</b> {{ $project->notes }}<br>
+            @endif
+            @if($project->created_at)
+                <b>Creato il:</b> {{ $project->created_at }}<br>
+            @endif
+            @if($project->updated_at)
+                <b>Aggiornato il:</b> {{ $project->updated_at }}<br>
+            @endif
+            @if($project->terminated_at)
+                <b>Terminato il:</b> {{ $project->terminated_at }}<br>
+            @endif
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+            <a class="btn btn-secondary" href="{{  URL::action('ProjectController@edit', $project->id) }}" >Modifica</a>
+            @if(!$project->terminated_at)
+                <a class="btn btn-primary" href="{{ URL::action('ProjectController@terminate', $project->id) }}" >Termina</a>
+            @endif
+            <a class="btn btn-danger" href="{{ URL::action('ProjectController@destroy', $project->id) }}" >Elimina</a><br>
+            <a class="btn btn-success" href="{{ URL::action('ProjectController@index') }}" >Torna alla lista</a>
+
+		</div>
+	</div>
+@endsection

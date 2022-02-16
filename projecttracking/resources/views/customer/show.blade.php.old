@@ -1,0 +1,39 @@
+@extends('layouts.app')
+
+@section('head')
+<title>Dettagli {{ $customer->business_name }}</title>
+@endsection
+
+@section('content')
+	<div class="row">
+		<div class="col-md-12">
+			<h1>{{ $customer->business_name }}</h1>
+			<table>
+				<tr>
+					<td>Partita IVA</td>
+					<td>{{ $customer->vat_number }}</td>
+				</tr>
+				<tr>
+					<td>Referente</td>
+					<td>{{ $customer->referent_name}} {{ $customer->referent_surname }}</td>
+				</tr>
+				<tr>
+					<td>E-mail</td>
+					<td>Referente: {{ $customer->referent_email }}<br>PEC: {{ $customer->pec }}</td>
+				</tr>
+				<tr>
+                    <td>Indirizzo fatturazione elettronica</td>
+                    <td>{{ $customer->ssid }}</td> 
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<a class="btn btn-secondary" href="{{  URL::action('CustomerController@edit', $customer->vat_number) }}" >Modifica</a>
+			<a class="btn btn-danger" href="{{ URL::action('CustomerController@destroy', $customer->vat_number) }}" >Elimina</a>
+			<a class="btn btn-success" href="{{ URL::action('CustomerController@index') }}" >Torna alla lista</a>
+		</div>
+	</div>
+@endsection

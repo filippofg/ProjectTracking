@@ -1,0 +1,45 @@
+#sidebar-btn {
+    position: absolute;
+    left: 15px;
+    top: 23px;
+    cursor: pointer;
+    height: 18px;
+    transition-duration: 0.3s;
+}
+#sidebar-btn.rotated {
+    transition-duration: 0.3s;
+    transform: rotateY(180deg);
+}
+#sidebar-btn span {
+    position: relative;
+    height: 1px;
+    width: 18px;
+	background: #111;
+	margin-bottom: 5px;
+    display: block;
+}
+
+#sidebar {
+    position: absolute;
+    width: 300px;
+    left: -300px;
+    top: 0px;
+    height: 100vh;
+    z-index: 1;
+    padding-right: 20px;
+    transition: left 0.3s linear;
+    overflow: hidden;
+}
+#sidebar .wrapper {
+    position: relative;
+    top: 65px;
+    left: 10px;
+}
+#sidebar.visible {
+    left: 0;
+    transition: left 0.3s linear;
+}
+#sidebar ul li ul li {
+    position: relative;
+    left: 20px;
+}

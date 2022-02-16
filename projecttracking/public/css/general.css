@@ -1,0 +1,37 @@
+nav {
+    z-index: 2;
+}
+label {
+    margin-bottom: 0px;
+}
+form.form-inline {
+    margin-bottom: 15px;
+}
+form.form-inline div.form-group * {
+    margin-right: 15px;
+}
+.dates {
+    padding-left: 10px;
+}
+.project-card {
+    margin-bottom: -10px;
+}
+.project-card .project-name {
+    position: relative;
+    top: 7px;
+}
+.form-inline {
+    float: left;
+}
+.table-body {
+    clear: left;
+}
+.btn-right {
+    position: relative;
+    top: -5px;
+    float: right;
+}
+.scrollable {
+    max-height: 150px;
+    overflow-y: scroll;
+}
